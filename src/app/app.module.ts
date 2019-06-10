@@ -17,6 +17,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { IndexComponent } from './home/index/index.component';
+import { SinglepropertyComponent } from './home/rentals/singleproperty/singleproperty.component';
+
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { IndexComponent } from './home/index/index.component';
     HomeComponent,
     RentalsComponent,
     AddrentalComponent,
-    IndexComponent
+    IndexComponent,
+    SinglepropertyComponent
+
   ],
   imports: [
     BrowserModule,

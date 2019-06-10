@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./addrental.component.css']
 })
 export class AddrentalComponent implements OnInit {
-
+  isPropertyAdded:boolean=false
   constructor(public rentalService:RentalService,public router:Router) { }
 
   ngOnInit() {
@@ -18,6 +18,8 @@ export class AddrentalComponent implements OnInit {
     console.log(addrentalform.value)
     this.rentalService.addRental(addrentalform.value).then(data=>{
       console.log(data.id)
+      addrentalform.reset()
+      this.isPropertyAdded=true
     }).catch(err=>{
       console.log(err)
     })  

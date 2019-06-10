@@ -12,4 +12,8 @@ export class RentalService {
     let createdOn = new Date()
     return this.db.collection('rentals').add({createdOn,...rental})
   }
+
+  getAllRentals(){
+    return this.db.collection('rentals').valueChanges()
+  }
 }

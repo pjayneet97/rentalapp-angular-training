@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RentalService } from 'src/app/service/rental.service';
 
 @Component({
   selector: 'app-rentals',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rentals.component.css']
 })
 export class RentalsComponent implements OnInit {
-
-  constructor() { }
+  properties=[]
+  selectedProperty
+  mode='list' // list or single
+  constructor(public rentalService:RentalService) { }
 
   ngOnInit() {
+    this.getAllProperties()
+  }
+
+  getAllProperties(){
+    this.rentalService.getAllRentals().subscribe(res=>{
+      this.properties=res
+      console.log(this.properties)
+    })
+  }
+  ViewDetails(property){
+    this.mode='single'
+    this.selectedProperty=property
   }
 
 }
