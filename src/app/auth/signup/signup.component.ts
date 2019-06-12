@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {    
+    
+  }
+  signup(signupForm:NgForm){
+    console.log(signupForm.value)
+    // code to sign up using firebase auth
   }
 
 }

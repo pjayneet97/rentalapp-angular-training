@@ -1,3 +1,18 @@
-<p>
-  signup works!
-</p>
+<form (ngSubmit)="signup(signupForm)" #signupForm="ngForm" class="form-signin">
+  <h1 class="h3 mb-3 font-weight-normal">Please sign Un</h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input name="email" ngModel type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus="">
+  <br>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input name="password" ngModel type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  <br>
+  <label for="inputdob" class="sr-only">dob</label>
+  <input name="dob" ngModel type="date" id="inputdob" class="form-control" placeholder="Date of Birth" required>
+  <br>
+  <label for="inputdob" class="sr-only">Mobile</label>
+  <input name="mobile" ngModel type="text" id="inputmob" class="form-control" placeholder="Mobile" required>
+  <br>
+  <button [disabled]="!signupForm.valid" class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+  or <a routerLink="/auth/signin">Sign In</a>
+  <p class="mt-5 mb-3 text-muted">© 2017-2019</p>
+</form>

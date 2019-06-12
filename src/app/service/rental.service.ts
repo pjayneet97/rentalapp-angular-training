@@ -11,6 +11,7 @@ export class RentalService {
   addRental(rental){
     let createdOn = new Date()
     return this.db.collection('rentals').add({createdOn,...rental})
+
   }
 
   getAllRentals(){

@@ -1,3 +1,12 @@
-<p>
-  signin works!
-</p>
+<form (ngSubmit)="signin(signinForm)" #signinForm="ngForm" class="form-signin">
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input name="email" ngModel type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus="">
+  <br>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input name="password" ngModel type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  <br>
+  <button [disabled]="!signinForm.valid" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  Or <a routerLink="/auth/signup">Sign Up</a>
+  <p class="mt-5 mb-3 text-muted">© 2017-2019</p>
+</form>
