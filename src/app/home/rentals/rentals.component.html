@@ -13,5 +13,7 @@
     </div>
   </div>
 </div>
-<button class="btn-primary" *ngIf="mode=='single'" (click)="mode='list'">Back</button>
+<div class="container">
+  <button class="btn-primary" *ngIf="mode=='single'" (click)="mode='list'">Back</button>
+</div>
 <app-singleproperty [property]="selectedProperty" *ngIf="mode=='single' && selectedProperty"></app-singleproperty>

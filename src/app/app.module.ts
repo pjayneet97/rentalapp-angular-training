@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { IndexComponent } from './home/index/index.component';
 import { SinglepropertyComponent } from './home/rentals/singleproperty/singleproperty.component';
 import { ErrorComponent } from './error/error.component';
+import { NavbarComponent } from './partials/navbar/navbar.component';
 
 
 
@@ -33,7 +34,8 @@ import { ErrorComponent } from './error/error.component';
     AddrentalComponent,
     IndexComponent,
     SinglepropertyComponent,
-    ErrorComponent
+    ErrorComponent,
+    NavbarComponent
 
   ],
   imports: [

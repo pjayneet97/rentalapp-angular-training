@@ -7,13 +7,17 @@ import { IndexComponent } from './home/index/index.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ErrorComponent } from './error/error.component';
+import { HomeComponent } from './home/home.component';
+import { AuthguardService } from './service/authguard.service';
 
 const routes: Routes = [
-  
-  {path:'allproperties' , component:RentalsComponent},
-  {path:'addproperty' , component:AddrentalComponent},
-  {path:'home' , component:IndexComponent},
-  {path:'auth' , component:AuthComponent },
+  {path:'' , component:HomeComponent , canActivate:[AuthguardService]},
+  {path:'home' , component:HomeComponent , canActivate:[AuthguardService], children:[
+    {path:'' , component:IndexComponent},
+    {path:'allproperties' , component:RentalsComponent},
+    {path:'addproperty' , component:AddrentalComponent},
+  ]},
+  /* {path:'auth' , component:AuthComponent }, */
 /*   {path:'auth/signin' , component:SigninComponent },
   {path:'auth/signup' , component:SignupComponent }, */
   {path:'test/:id' , component:SignupComponent },

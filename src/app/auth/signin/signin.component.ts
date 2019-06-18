@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -8,7 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class SigninComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth:AuthService) { }
 
   ngOnInit() {
   }
@@ -16,7 +17,8 @@ export class SigninComponent implements OnInit {
   signin(signinForm:NgForm){
     console.log(signinForm.value)
     // code to sign in using firebase auth
-    signinForm.reset()
+    this.auth.logIn(signinForm.value.email,signinForm.value.password)
+    
   }
 
 }
