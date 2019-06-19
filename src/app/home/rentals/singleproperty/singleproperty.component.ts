@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
+import { EnquiryService } from 'src/app/service/enquiry.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-singleproperty',
@@ -7,10 +10,26 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SinglepropertyComponent implements OnInit {
   @Input('property') property
-           
-  constructor() { }
+  showForm:boolean=false  
+  constructor(public authService:AuthService,public enquiryService:EnquiryService) { }
 
   ngOnInit() {
+  }
+
+  sendEnquiry(enquiryForm:NgForm){
+    console.log(enquiryForm.value)
+    let title = this.property.title
+    let timestamp=new Date()
+    let id = this.property.id
+    let ownerEmail=this.property.ownerEmail
+    this.enquiryService.addEnquiry({ownerEmail,timestamp,id,title,...enquiryForm.value}).then(data=>{
+      enquiryForm.reset()
+      this.showForm=false
+    }).catch(err=>{
+      console.log(err)
+    })
+    
+
   }
 
 }

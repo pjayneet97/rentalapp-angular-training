@@ -39,7 +39,13 @@ export class AuthService {
      else{
        return false;
      }
+
+  
    }
+
+   getEmail(){
+    console.log(this.userDetails.user)
+  }
 
 
 
