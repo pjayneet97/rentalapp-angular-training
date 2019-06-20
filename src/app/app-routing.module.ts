@@ -13,7 +13,7 @@ import { EnquiriesComponent } from './home/enquiries/enquiries.component';
 
 const routes: Routes = [
   {path:'' , component:HomeComponent , canActivate:[AuthguardService]},
-  {path:'home' , component:HomeComponent , children:[
+  {path:'home' , component:HomeComponent ,canActivate:[AuthguardService], children:[
     {path:'' , component:IndexComponent},
     {path:'allproperties' , component:RentalsComponent},
     {path:'addproperty' , component:AddrentalComponent},

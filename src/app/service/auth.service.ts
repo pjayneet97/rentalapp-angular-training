@@ -17,7 +17,8 @@ export class AuthService {
 
    logIn(email,password){
     this.FirebaseAuth.auth.signInWithEmailAndPassword(email,password).then(data=>{
-      console.log(data)
+      this.userDetails=data
+      console.log(this.userDetails)
       this.router.navigateByUrl('/home')
     }).catch(err=>{
       console.log(err)
@@ -26,6 +27,8 @@ export class AuthService {
 
    signUp(email,password){
      this.FirebaseAuth.auth.createUserWithEmailAndPassword(email,password).then(data=>{
+      this.userDetails=data
+      this.router.navigateByUrl('/home')
       console.log(data)
      }).catch(err=>{
       console.log(err)
@@ -44,7 +47,8 @@ export class AuthService {
    }
 
    getEmail(){
-    console.log(this.userDetails.user)
+     console.log(this.userDetails)
+    return this.userDetails.user.email
   }
 
 

@@ -22,7 +22,8 @@ export class SinglepropertyComponent implements OnInit {
     let timestamp=new Date()
     let id = this.property.id
     let ownerEmail=this.property.ownerEmail
-    this.enquiryService.addEnquiry({ownerEmail,timestamp,id,title,...enquiryForm.value}).then(data=>{
+    let email = this.authService.getEmail()
+    this.enquiryService.addEnquiry({email,ownerEmail,timestamp,id,title,...enquiryForm.value}).then(data=>{
       enquiryForm.reset()
       this.showForm=false
     }).catch(err=>{
