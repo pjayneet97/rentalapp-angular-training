@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { EnquiryService } from 'src/app/service/enquiry.service';
 import { NgForm } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-singleproperty',
@@ -10,10 +11,12 @@ import { NgForm } from '@angular/forms';
 })
 export class SinglepropertyComponent implements OnInit {
   @Input('property') property
+  image:any
   showForm:boolean=false  
-  constructor(public authService:AuthService,public enquiryService:EnquiryService) { }
+  constructor(public authService:AuthService,public enquiryService:EnquiryService,public storage:AngularFireStorage) { }
 
   ngOnInit() {
+    this.image = this.storage.ref(this.property.image).getDownloadURL()
   }
 
   sendEnquiry(enquiryForm:NgForm){

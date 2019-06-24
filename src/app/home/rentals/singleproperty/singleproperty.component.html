@@ -14,6 +14,7 @@
       <p style="color: blue">Owner Name: {{property.ownername}}</p>
       <p style="color: blue">Conntact : {{property.ownercontact}}</p> -->
       <br>
+      <img width="500px" height="200px;" src="{{image|async}}">
       <h2 style="color: red">Price</h2>
       <h4 style="color:green">Rs {{property.price}}</h4>
       <button (click)="showForm=!showForm" class="btn btn-primary btn-block">Enquire for this property</button>
