@@ -48,7 +48,7 @@ export class AuthService {
 
    getEmail(){
      console.log(this.userDetails)
-    return this.userDetails.user.email
+    return this.userDetails.email
   }
 
 
