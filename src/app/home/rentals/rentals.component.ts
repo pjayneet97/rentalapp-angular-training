@@ -27,4 +27,17 @@ export class RentalsComponent implements OnInit {
     this.selectedProperty=property
   }
 
+  getOrdered(by:string){
+    this.rentalService.getOrderedRentals(by).subscribe(data=>{
+      this.properties=data
+    })
+  }
+
+  search(searchkey:string){
+    console.log(searchkey)
+    this.rentalService.getByLocality(searchkey).subscribe(data=>{
+      this.properties=data
+    })
+  }
+
 }

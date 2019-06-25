@@ -24,4 +24,24 @@ export class RentalService {
       }))
     );
   }
+
+  getOrderedRentals(by){
+    return  this.db.collection('rentals',ref=>ref.orderBy('price',by)).snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+  }
+
+  getByLocality(searchkey){
+   return this.db.collection('rentals',ref=>ref.where('locality','==',searchkey)).snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+  }
 }
